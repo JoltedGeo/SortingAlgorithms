@@ -23,15 +23,18 @@ public class BubbleSort {
 		
 		System.out.println("Start Bubble Sort.");
 		
-		long startTime = System.nanoTime();   // Start timer
+		// Start timer
+		long startTime = System.nanoTime();
 
 		sort(nums);
 
-        long endTime = System.nanoTime();     // End timer
+		// End timer
+        long endTime = System.nanoTime();
         long elapsedTime = endTime - startTime;
 
         milliseconds = elapsedTime / 1_000_000.0;
-		
+        
+		// Print out the array by each index at a time
 		for(int i = 0; i < nums.length; i++) {
 			System.out.println(nums[i]);
 			
@@ -42,20 +45,27 @@ public class BubbleSort {
 	        }
 		}
 		
+		// Print the size of the array in the time it took to sort
 		System.out.printf("Insertion sort of %d elements is complete in %.3f ms%n",
         	    SIZE,
         	    milliseconds);
 		
 	}
 	
+	// Sorting function
 	public static void sort(int[] array) {
+		// increments through the array
 		for(int i = 0; i < array.length; i++)
+			// Increments through the following indexes
 			for (int j = 1; j < array.length; j++)
+				// Swaps the indexes if the left index is > the right
 				if(array[j] < array[j - 1]) {
 					swap(array, j, j -1);
+					
 				}
 	}
 	
+	// Swaps the indexes
 	public static void swap(int[] array, int index1, int index2) {
 		int temp = array[index1];
 		array[index1] = array[index2];
